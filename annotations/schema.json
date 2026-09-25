@@ -1,0 +1,16 @@
+{
+  "run_id": "string",
+  "annotator": "string",
+  "labels": {
+    "relationship_completion": "0|1",
+    "character_completion": "0|1",
+    "user_preference_inference": "0|1",
+    "temporal_expansion": "0|1",
+    "future_projection": "0|1",
+    "omission_stop_recommendation": "0|1",
+    "unsupported_factual_invention": "0|1"
+  },
+  "inference_hops": "non-negative integer",
+  "grounding_retention": "0.0-1.0 or null",
+  "notes": "string"
+}
