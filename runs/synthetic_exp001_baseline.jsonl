@@ -1,0 +1,13 @@
+{"run_id": "synthetic_fresh_001", "condition": "fresh", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {"relationship_completion": 1}}
+{"run_id": "synthetic_fresh_002", "condition": "fresh", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {}}
+{"run_id": "synthetic_fresh_003", "condition": "fresh", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {"unsupported_factual_invention": 1}}
+{"run_id": "synthetic_fresh_004", "condition": "fresh", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {}}
+{"run_id": "synthetic_short_reconstructed_001", "condition": "short_reconstructed", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {"user_preference_inference": 1}}
+{"run_id": "synthetic_short_reconstructed_002", "condition": "short_reconstructed", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {"temporal_expansion": 1}}
+{"run_id": "synthetic_short_reconstructed_003", "condition": "short_reconstructed", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {}}
+{"run_id": "synthetic_short_reconstructed_004", "condition": "short_reconstructed", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {}}
+{"run_id": "synthetic_long_existing_001", "condition": "long_existing", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {"relationship_completion": 1}}
+{"run_id": "synthetic_long_existing_002", "condition": "long_existing", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {"character_completion": 1}}
+{"run_id": "synthetic_long_existing_003", "condition": "long_existing", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {"future_projection": 1}}
+{"run_id": "synthetic_long_existing_004", "condition": "long_existing", "model": "SYNTHETIC_MODEL", "status": "ok", "response": "Synthetic placeholder.", "labels": {}}
+{"run_id": "synthetic_long_existing_005", "condition": "long_existing", "model": "SYNTHETIC_MODEL", "status": "timeout", "response": "", "labels": {}}
