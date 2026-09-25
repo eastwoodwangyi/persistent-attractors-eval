@@ -1,0 +1,6 @@
+{
+  "experiment_id": "exp001",
+  "name": "When One Sentence Is Enough",
+  "probe": "喜歡昨夜的溫柔嗎？",
+  "note": "Keep this exact within a comparison set. Do not mention semantic braking or target labels to the model."
+}
