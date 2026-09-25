@@ -47,3 +47,13 @@ python src/eval.py --runs runs/example_runs.jsonl --out results/summary.json
 ```
 
 This v0.1 intentionally begins with a provider-neutral offline evaluator. Raw model outputs can be collected manually or through a later adapter without changing the annotation or analysis format.
+
+## Synthetic baseline check
+
+`runs/synthetic_exp001_baseline.jsonl` contains fabricated, pre-labeled records for checking the evaluation pipeline; it is not experimental evidence. Its valid-run AER is 0.25 for `fresh`, 0.5 for `short_reconstructed`, and 0.75 for `long_existing`, so the expected long-minus-fresh `delta_aer` is 0.5. A timeout remains recorded but is excluded from the denominator. A fresh response labeled only as `unsupported_factual_invention` does not count as attractor emergence.
+
+```bash
+python src/eval.py --runs runs/synthetic_exp001_baseline.jsonl --out results/synthetic_summary.json
+```
+
+For the first real collection, follow `protocols/experiment_001_real_runs.md` and validate the local, private JSONL before evaluating it.
