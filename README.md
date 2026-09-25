@@ -55,3 +55,5 @@ This v0.1 intentionally begins with a provider-neutral offline evaluator. Raw mo
 ```bash
 python src/eval.py --runs runs/synthetic_exp001_baseline.jsonl --out results/synthetic_summary.json
 ```
+
+For the first real collection, follow `protocols/experiment_001_real_runs.md` and validate the local, private JSONL before evaluating it.
