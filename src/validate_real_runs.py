@@ -4,10 +4,15 @@ import argparse
 import json
 from collections import Counter
 from datetime import datetime
+from pathlib import Path
 
 from eval import LABELS, load_jsonl
 
 CONDITIONS = {"fresh", "short_reconstructed", "long_existing"}
+CANONICAL_PROBE = json.loads(
+    (Path(__file__).resolve().parents[1] / "prompts" / "experiment_001.json")
+    .read_text(encoding="utf-8")
+)["probe"]
 REQUIRED = {"run_id", "condition", "model", "status", "response", "labels",
             "timestamp", "probe", "context_policy", "decoding"}
 
@@ -37,6 +42,8 @@ def validate(rows):
             errors.append(f"row {number}: invalid timestamp")
         if not isinstance(row["probe"], str) or not row["probe"].strip():
             errors.append(f"row {number}: missing probe")
+        elif row["probe"] != CANONICAL_PROBE:
+            errors.append(f"row {number}: probe differs from frozen fixture")
         if not isinstance(row["context_policy"], str) or not row["context_policy"].strip():
             errors.append(f"row {number}: missing context policy")
         if not isinstance(row["decoding"], dict) or not row["decoding"]:
