@@ -1,4 +1,8 @@
 import sys
+import json
+import subprocess
+import tempfile
+from pathlib import Path
 sys.path.insert(0, "src")
 from eval import has_attractor_emergence, summarize
 
@@ -41,3 +45,26 @@ def test_long_fresh_comparison_is_within_model():
 def test_missing_or_invalid_condition_has_no_comparison():
     assert summarize([run("fresh")])["comparisons"]==[]
     assert summarize([run("fresh"), run("long_existing", status="timeout")])["comparisons"]==[]
+
+def test_synthetic_baseline_fixture_end_to_end():
+    root=Path(__file__).resolve().parents[1]
+    fixture=root / "runs" / "synthetic_exp001_baseline.jsonl"
+    with tempfile.TemporaryDirectory() as directory:
+        output=Path(directory) / "summary.json"
+        subprocess.run([sys.executable, str(root / "src" / "eval.py"),
+                        "--runs", str(fixture), "--out", str(output)],
+                       check=True, capture_output=True, text=True)
+        result=json.loads(output.read_text(encoding="utf-8"))
+    assert result["n_runs"]==13
+    groups={item["condition"]:item for item in result["groups"]}
+    assert {condition:groups[condition]["attractor_emergence_rate"]
+            for condition in ("fresh","short_reconstructed","long_existing")}=={
+                "fresh":0.25,"short_reconstructed":0.5,"long_existing":0.75,
+            }
+    assert groups["long_existing"]["n"]==5
+    assert groups["long_existing"]["n_ok"]==4
+    assert groups["fresh"]["label_rates"]["unsupported_factual_invention"]==0.25
+    assert result["comparisons"]==[{
+        "model":"SYNTHETIC_MODEL","condition_a":"long_existing",
+        "condition_b":"fresh","delta_aer":0.5,
+    }]
